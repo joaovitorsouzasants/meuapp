@@ -3,8 +3,9 @@ import { SafeAreaView,
    Text, 
   TextInput,
 TouchableOpacity,
-ScrollView, FlatList
+ FlatList
 } from 'react-native';
+import { Button } from "../../components/Button";
 import { styles } from "./styles";
 
 export function Home() {
@@ -24,16 +25,12 @@ export function Home() {
           placeholderTextColor="#555"
           onChangeText={setNovaTarefa}
     /> 
-    <TouchableOpacity 
-      style={styles.button}
-      activeOpacity={0.5}
-      onPress={handleAddNewTask}
-      >
-      <Text style={styles.buttonText}>
-        Adcionar
-      </Text>
-    </TouchableOpacity>
-  <Text style={{marginTop: 20}}>
+
+    <Button onPress={handleAddNewTask}
+    activeOpacity={0.7}
+    title="Adcionar Tarefa"/>
+
+  <Text style={[styles.text, { marginTop: 20}]}>
       Minhas tarefas
   </Text>
   

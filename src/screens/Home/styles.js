@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
     },
     text: {
         fontSize: 25,
-        margin: 20
+        margin: 20,
+        marginTop: 50
     },
     input: {
         backgroundColor: '#1F1E25',
