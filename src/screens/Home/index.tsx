@@ -6,18 +6,33 @@ TouchableOpacity,
  FlatList
 } from 'react-native';
 import { Button } from "../../components/Button";
+import { TaskCard } from "../../components/TaskCard";
 import { styles } from "./styles";
-
+interface TaskDate {
+  id: string;
+  name: string;
+}
 export function Home() {
   const[novaTarefa, setNovaTarefa]= useState("");
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState<TaskDate[]>([]);
+
   function handleAddNewTask(){
-    setTasks(oldState => [...oldState, novaTarefa])
+    const data: TaskDate ={
+      id: String((new Date).getTime()),
+      name: novaTarefa
+    }
+    setTasks(oldState => [...oldState, data])
+  }
+
+  function handleRemoveTasks(id: string){
+    setTasks(oldState => oldState.filter(
+      task => task.id != id
+    ));
   }
   return (
     <SafeAreaView style={styles.container} >
       <Text style={styles.text}>
-        Ola
+        Olá, seja Bem-Vindo!!
     </Text>
     <TextInput
           style={styles.input}
@@ -36,14 +51,12 @@ export function Home() {
   
   <FlatList
   data={tasks}
-  keyExtractor={item => item}
+  keyExtractor={item => item.id}
   renderItem={({item}) => (
-    <TouchableOpacity 
-      style={styles.buttonTask}>
-        <Text style={styles.textTask}>
-          {item}
-        </Text>
-      </TouchableOpacity>
+    <TaskCard
+    title={item.name}
+    onPress= {()=>handleRemoveTasks(item.id)}
+    />
   )
 }
   />

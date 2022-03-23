@@ -18,18 +18,6 @@ export const styles = StyleSheet.create({
         padding:  15,
         marginHorizontal: 20
     },
-    button: {
-        backgroundColor: 'green',
-        padding: 15,
-        margin: 20,
-        alignItems: 'center',
-        borderRadius: 9
-    },
-    buttonText: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
     buttonTask:{
         backgroundColor: '#1F1E25',
         padding: 15,
